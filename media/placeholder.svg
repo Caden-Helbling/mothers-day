@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe6c2"/>
+      <stop offset="100%" stop-color="#ffd9e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#g)"/>
+  <!-- crayon scribbles -->
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M70 80 q 20 -20 40 0 t 40 0" stroke="#4dc3ff" stroke-width="6"/>
+    <path d="M460 90 l 18 18 m 0 -18 l -18 18" stroke="#ff9c3d" stroke-width="6"/>
+    <path d="M500 320 q -10 -25 12 -30 q 18 -2 14 18 q -4 16 -26 12 z" stroke="#c92766" stroke-width="4" fill="#ff8ab8"/>
+    <path d="M90 330 l 8 -22 l 8 22 l 22 4 l -16 14 l 6 22 l -20 -12 l -20 12 l 6 -22 l -16 -14 l 22 -4 z" stroke="#b07dff" stroke-width="3" fill="#ffd84d"/>
+  </g>
+  <text x="50%" y="48%" font-family="Gloria Hallelujah, Comic Sans MS, cursive" font-size="46" fill="#ff4d8d" text-anchor="middle">drop a foto here!</text>
+  <text x="50%" y="60%" font-family="Schoolbell, cursive" font-size="28" fill="#3b2a52" text-anchor="middle">(ur the best mom 💕)</text>
+</svg>

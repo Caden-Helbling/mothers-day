@@ -1,0 +1,364 @@
+:root {
+  --pink:    #ff4d8d;
+  --pink-2:  #ff8ab8;
+  --paper:   #ffd9e3;
+  --paper-2: #ffe6c2;
+  --yellow:  #ffd84d;
+  --blue:    #4dc3ff;
+  --green:   #5fd16b;
+  --purple:  #b07dff;
+  --orange:  #ff9c3d;
+  --ink:     #3b2a52;
+  --crayon-shadow: 1px 2px 0 rgba(0,0,0,0.08), 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Patrick Hand", "Comic Sans MS", system-ui, sans-serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Construction-paper feel: warm pink base + tiny fiber dots */
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.45) 1px, transparent 1.5px),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.04) 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.35) 1px, transparent 1.5px);
+  background-size: 7px 7px, 11px 11px, 9px 9px;
+}
+
+/* ---------- Doodles layer (floating stickers) ---------- */
+.doodles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.doodle {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.6rem;
+  animation: float-up linear forwards;
+  user-select: none;
+  filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.12));
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.95; }
+  100% { transform: translateY(-115vh) rotate(540deg); opacity: 0; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero-title {
+  font-family: "Gloria Hallelujah", "Comic Sans MS", cursive;
+  font-size: clamp(2.6rem, 9vw, 6rem);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.ltr {
+  display: inline-block;
+  color: var(--c, var(--pink));
+  text-shadow: 2px 3px 0 #fff, 4px 6px 0 rgba(0,0,0,0.08);
+  animation: wiggle 3.2s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+/* Crayon-box colors */
+.c1 { --c: #ff4d8d; }
+.c2 { --c: #ff9c3d; }
+.c3 { --c: #ffc73d; }
+.c4 { --c: #5fd16b; }
+.c5 { --c: #4dc3ff; }
+.c6 { --c: #b07dff; }
+
+/* Stagger the wiggle so letters don't move in sync */
+.ltr:nth-child(1)  { animation-delay: 0.0s;  transform: rotate(-6deg); }
+.ltr:nth-child(2)  { animation-delay: 0.15s; transform: rotate(4deg); }
+.ltr:nth-child(3)  { animation-delay: 0.3s;  transform: rotate(-3deg); }
+.ltr:nth-child(4)  { animation-delay: 0.45s; transform: rotate(5deg); }
+.ltr:nth-child(5)  { animation-delay: 0.6s;  transform: rotate(-5deg); }
+.ltr:nth-child(7)  { animation-delay: 0.1s;  transform: rotate(3deg); }
+.ltr:nth-child(8)  { animation-delay: 0.25s; transform: rotate(-4deg); }
+.ltr:nth-child(9)  { animation-delay: 0.4s;  transform: rotate(6deg); }
+.ltr:nth-child(10) { animation-delay: 0.55s; transform: rotate(-2deg); }
+.ltr:nth-child(11) { animation-delay: 0.7s;  transform: rotate(4deg); }
+.ltr:nth-child(12) { animation-delay: 0.85s; transform: rotate(-5deg); }
+.ltr:nth-child(14) { animation-delay: 0.2s;  transform: rotate(-3deg); }
+.ltr:nth-child(15) { animation-delay: 0.35s; transform: rotate(5deg); }
+.ltr:nth-child(16) { animation-delay: 0.5s;  transform: rotate(-4deg); }
+.ltr:nth-child(17) { animation-delay: 0.65s; transform: rotate(7deg); }
+
+.ltr-space { display: inline-block; width: 0.4em; }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(var(--r, -3deg)) translateY(0); }
+  50%      { transform: rotate(var(--r, -3deg)) translateY(-6px); }
+}
+
+.hero-subtitle {
+  font-family: "Schoolbell", cursive;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin: 1rem 0 0.5rem;
+  color: var(--ink);
+  transform: rotate(-2deg);
+}
+
+.stick-family {
+  width: min(360px, 90vw);
+  height: auto;
+  margin: 1rem 0 0.5rem;
+}
+
+.hero-scroll {
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 1.1rem;
+  border: 3px dashed var(--ink);
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: var(--crayon-shadow);
+  transform: rotate(-3deg);
+  transition: transform 0.2s ease;
+}
+
+.hero-scroll:hover {
+  transform: rotate(-1deg) translateY(-3px) scale(1.05);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 3rem auto;
+  padding: 0 1.25rem 2rem;
+}
+
+.section-title {
+  font-family: "Gloria Hallelujah", cursive;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--purple);
+  margin-bottom: 3rem;
+  text-shadow: 2px 3px 0 #fff;
+  transform: rotate(-1.5deg);
+}
+
+/* hand-drawn-ish dashed spine */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 7rem;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--blue) 0 16px,
+    transparent 16px 28px
+  );
+  transform: translateX(-50%) rotate(0.4deg);
+  border-radius: 999px;
+  box-shadow: 1px 0 0 rgba(0,0,0,0.05);
+}
+
+.memory {
+  position: relative;
+  width: 50%;
+  padding: 1.25rem 2.25rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.memory.visible { opacity: 1; transform: translateY(0); }
+
+.memory.left  { left: 0;   text-align: right; }
+.memory.right { left: 50%; text-align: left; }
+
+.memory-year {
+  display: inline-block;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 1.6rem;
+  color: #fff;
+  background: var(--pink);
+  padding: 0.15rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--crayon-shadow);
+  transform: rotate(-3deg);
+  border: 2px solid #fff;
+}
+
+.memory.right .memory-year { transform: rotate(3deg); }
+
+/* Photos = polaroids taped to the page */
+.memory-card {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.75rem 0.75rem 0.4rem;
+  box-shadow: var(--crayon-shadow), 0 12px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.memory.left  .memory-card { transform: rotate(-3deg); }
+.memory.right .memory-card { transform: rotate(3deg); }
+.memory-card:hover         { transform: rotate(0) scale(1.03); }
+
+.memory-card img,
+.memory-card video {
+  width: 100%;
+  border-radius: 3px;
+  display: block;
+}
+
+/* Washi-tape corners */
+.memory-card::before,
+.memory-card::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 22px;
+  opacity: 0.78;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.4) 0 6px, transparent 6px 12px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.memory-card::before { top: -10px; left: -14px;  transform: rotate(-22deg); }
+.memory-card::after  { top: -10px; right: -14px; transform: rotate(22deg); }
+
+.tape-a::before, .tape-a::after { background-color: var(--yellow); }
+.tape-b::before, .tape-b::after { background-color: var(--blue); }
+.tape-c::before, .tape-c::after { background-color: var(--green); }
+.tape-d::before, .tape-d::after { background-color: var(--purple); }
+
+/* Sticky-note caption */
+.memory-caption {
+  display: inline-block;
+  margin: 0.85rem 0 0.25rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--yellow);
+  font-family: "Schoolbell", cursive;
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-radius: 2px;
+  box-shadow: 1px 2px 0 rgba(0,0,0,0.1);
+  max-width: 100%;
+  text-align: left;
+}
+
+.memory.left  .memory-caption { transform: rotate(-2deg); }
+.memory.right .memory-caption { transform: rotate(2deg); }
+
+/* Doodled heart on the spine */
+.memory::after {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  width: 28px;
+  height: 26px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'><path d='M12 21s-9-5.5-10-12C1.5 5 5 2 8 3c2 .7 3.2 2.4 4 4 .8-1.6 2-3.3 4-4 3-1 6.5 2 6 6-1 6.5-10 12-10 12z' fill='%23ff4d8d' stroke='%23c92766' stroke-width='1.5' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.12));
+}
+.memory.left::after  { right: -1.3rem; top: 1.5rem; transform: rotate(-10deg); }
+.memory.right::after { left:  -1.3rem; top: 1.5rem; transform: rotate(10deg); }
+
+/* ---------- Closing ---------- */
+.closing {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 1.5rem 6rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.closing h2 {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--pink);
+  text-shadow: 2px 3px 0 #fff;
+  transform: rotate(-2deg);
+}
+
+.closing p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-family: "Patrick Hand", cursive;
+}
+
+.signoff {
+  margin-top: 1.5rem;
+  font-family: "Schoolbell", cursive;
+  font-size: 1.4rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.big-heart {
+  width: min(220px, 60vw);
+  height: auto;
+  margin-top: 1.5rem;
+  animation: heartbeat 1.6s ease-in-out infinite;
+  filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.1));
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  20%      { transform: scale(1.08); }
+  40%      { transform: scale(0.98); }
+  60%      { transform: scale(1.04); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 720px) {
+  .timeline::before { left: 1rem; }
+  .memory,
+  .memory.left,
+  .memory.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 2.5rem;
+    padding-right: 0.5rem;
+  }
+  .memory.left  .memory-year { transform: rotate(-3deg); }
+  .memory.left  .memory-card { transform: rotate(-2deg); }
+  .memory::after,
+  .memory.left::after,
+  .memory.right::after {
+    left: 0.1rem;
+    right: auto;
+  }
+}

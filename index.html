@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Mothers Day, Mom!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Patrick+Hand&family=Schoolbell&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="doodles" aria-hidden="true"></div>
+
+  <header class="hero">
+    <!-- Crayon-rainbow title. Each letter wobbles independently. -->
+    <h1 class="hero-title" aria-label="Happy Mothers Day!">
+      <span class="ltr c1">H</span><span class="ltr c2">a</span><span class="ltr c3">p</span><span class="ltr c4">p</span><span class="ltr c5">y</span>
+      <span class="ltr-space"> </span>
+      <span class="ltr c6">M</span><span class="ltr c1">o</span><span class="ltr c2">t</span><span class="ltr c3">h</span><span class="ltr c4">e</span><span class="ltr c5">r</span><span class="ltr c6">s</span>
+      <span class="ltr-space"> </span>
+      <span class="ltr c6">D</span><span class="ltr c1">a</span><span class="ltr c2">y</span><span class="ltr c3">!</span>
+    </h1>
+
+    <p class="hero-subtitle">from your 2 boys 💕</p>
+
+    <!-- Stick-figure family doodle -->
+    <svg class="stick-family" viewBox="0 0 360 180" aria-hidden="true">
+      <g fill="none" stroke="#3b2a52" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <!-- ground squiggle -->
+        <path d="M10 165 Q 60 158, 110 165 T 220 165 T 350 165" stroke="#5fd16b" stroke-width="4"/>
+        <!-- mom (with hair) -->
+        <circle cx="180" cy="60" r="22" fill="#fff7f0"/>
+        <!-- hair cap -->
+        <path d="M158 55 Q158 32, 180 30 Q202 32, 202 55 Q195 53, 180 53 Q165 53, 158 55 Z" fill="#6b4423" stroke="#3b2a52" stroke-width="2"/>
+        <!-- left curl: long hair past the head with upward flick at the end -->
+        <path d="M158 55 Q140 70, 142 92 Q148 106, 164 100 Q158 92, 156 84 Q156 72, 158 60 Z" fill="#6b4423" stroke="#3b2a52" stroke-width="2"/>
+        <!-- right curl: long hair past the head with upward flick at the end -->
+        <path d="M202 55 Q220 70, 218 92 Q212 106, 196 100 Q202 92, 204 84 Q204 72, 202 60 Z" fill="#6b4423" stroke="#3b2a52" stroke-width="2"/>
+        <circle cx="173" cy="60" r="2" fill="#3b2a52"/>
+        <circle cx="187" cy="60" r="2" fill="#3b2a52"/>
+        <path d="M172 70 Q 180 76, 188 70" />
+        <path d="M180 82 L180 130"/>
+        <path d="M180 95 L155 115 M180 95 L205 115"/>
+        <path d="M180 130 L165 160 M180 130 L195 160"/>
+        <text x="158" y="22" font-family="Gloria Hallelujah, cursive" font-size="14" fill="#ff4d8d" stroke="none">MOM ♡</text>
+        <!-- boy 1 (with hair) -->
+        <circle cx="80" cy="90" r="16" fill="#fff7f0"/>
+        <path d="M66 84 Q64 73, 80 71 Q96 73, 94 84 Q88 80, 80 81 Q72 80, 66 84 Z" fill="#6b4423" stroke="#3b2a52" stroke-width="2"/>
+        <circle cx="75" cy="88" r="1.6" fill="#3b2a52"/>
+        <circle cx="86" cy="88" r="1.6" fill="#3b2a52"/>
+        <path d="M75 96 Q 80 100, 86 96" />
+        <path d="M80 106 L80 140"/>
+        <path d="M80 116 L62 132 M80 116 L98 132"/>
+        <path d="M80 140 L70 162 M80 140 L90 162"/>
+        <!-- boy 2 -->
+        <circle cx="280" cy="92" r="16" fill="#fff7f0"/>
+        <circle cx="275" cy="90" r="1.6" fill="#3b2a52"/>
+        <circle cx="286" cy="90" r="1.6" fill="#3b2a52"/>
+        <path d="M275 98 Q 280 102, 286 98" />
+        <path d="M280 108 L280 142"/>
+        <path d="M280 118 L262 134 M280 118 L298 134"/>
+        <path d="M280 142 L270 164 M280 142 L290 164"/>
+        <!-- mom holding boys' hands -->
+        <path d="M155 115 Q 120 120, 96 130" stroke-dasharray="0"/>
+        <path d="M205 115 Q 240 120, 264 130"/>
+        <!-- floating hearts -->
+        <path d="M50 40 q -6 -8 -12 0 t 12 12 q 12 -4 12 -12 t -12 0z" fill="#ff4d8d" stroke="#c92766"/>
+        <path d="M320 50 q -5 -7 -10 0 t 10 10 q 10 -3 10 -10 t -10 0z" fill="#ff4d8d" stroke="#c92766"/>
+      </g>
+    </svg>
+
+    <a class="hero-scroll" href="#timeline">↓ scroll down ↓</a>
+  </header>
+
+  <main>
+    <section id="timeline" class="timeline">
+      <h2 class="section-title">our favorite memories 💖</h2>
+
+      <!--
+        ============================================
+         HOW TO ADD A MEMORY
+        ============================================
+        1. Drop the photo into the media/ folder
+        2. Copy one <article class="memory ..."> block below
+        3. Update YEAR, the image src, and the caption
+        4. Alternate "left" and "right" so they zig-zag
+        5. The "tape-{a,b,c,d}" class picks a tape color — mix them up!
+        For a video: replace <img> with
+          <video controls playsinline src="media/your-video.mp4"></video>
+      -->
+
+      <article class="memory left">
+        <div class="memory-year">YEAR</div>
+        <div class="memory-card tape-a">
+          <img src="media/nest.jpg" alt="A favorite memory" />
+          <p class="memory-caption">this is when u were the BEST mom ⭐</p>
+        </div>
+      </article>
+
+      <article class="memory right">
+        <div class="memory-year">YEAR</div>
+        <div class="memory-card tape-b">
+          <img src="media/placeholder.svg" alt="Another favorite memory" />
+          <p class="memory-caption">remember this day??? so fun!!!</p>
+        </div>
+      </article>
+
+      <article class="memory left">
+        <div class="memory-year">YEAR</div>
+        <div class="memory-card tape-c">
+          <img src="media/placeholder.svg" alt="One more memory" />
+          <p class="memory-caption">we love u so much 💕💕💕</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="closing">
+      <h2>we LOVE u mom!!!</h2>
+      <p>thank u for everything — the snacks, the band-aids, the bedtime stories, and putting up with us 4ever.</p>
+      <p class="signoff">— your boys 💖💖💖</p>
+      <!-- big drawn heart -->
+      <svg class="big-heart" viewBox="0 0 200 180" aria-hidden="true">
+        <path d="M100 160 C 30 110, 10 60, 50 35 C 80 18, 100 50, 100 50 C 100 50, 120 18, 150 35 C 190 60, 170 110, 100 160 Z"
+              fill="#ff8ab8" stroke="#c92766" stroke-width="4" stroke-linejoin="round"/>
+        <text x="100" y="100" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="22" fill="#fff">MOM</text>
+      </svg>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
